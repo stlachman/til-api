@@ -5,8 +5,8 @@ const cors = require("cors");
 server.use(express.json());
 server.use(cors());
 
-const authRouter = require("../auth/authRouter");
-const notesRouter = require("../notes/notesRouter");
+const authRouter = require("../auth/auth-router");
+const notesRouter = require("../notes/notes-router");
 const usersRouter = require("../users/users-router");
 
 server.get("/", (req, res) => {

@@ -12,8 +12,9 @@ router.post("/register", validateRegistration, (req, res) => {
   user.password = hash;
 
   Users.add(user)
-    .then(saved => {
-      res.status(201).json(saved);
+    .then(savedUser => {
+      const token = generateToken(user);
+      res.status(201).json({ savedUser, token });
     })
     .catch(error => {
       res.status(500).json(error);
